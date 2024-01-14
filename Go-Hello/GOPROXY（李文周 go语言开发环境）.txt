@@ -1,0 +1,17 @@
+
+GOROOT和GOPATH都是环境变量，其中GOROOT是我们安装go开发包的路径，而从Go 1.8版本开始，Go开发包在安装完成后会为GOPATH设置一个默认目录，并且在Go1.14及之后的版本中启用了Go Module模式之后，不一定非要将代码写到GOPATH目录下，所以也就不需要我们再自己配置GOPATH了，使用默认的即可。
+
+想要查看你电脑上的GOPATH路径，只需要打开终端输入以下命令并回车：
+	go env
+在终端输出的内容中找到GOPATH对应的具体路径。
+
+GOPROXY 非常重要
+Go1.14版本之后，都推荐使用go mod模式来管理依赖环境了，也不再强制我们把代码必须写在GOPATH下面的src目录了，你可以在你电脑的任意位置编写go代码。（网上有些教程适用于1.11版本之前。）
+
+默认GoPROXY配置是：GOPROXY=https://proxy.golang.org,direct，由于国内访问不到https://proxy.golang.org，所以我们需要换一个PROXY，这里推荐使用https://goproxy.io或https://goproxy.cn。
+
+可以执行下面的命令修改GOPROXY：
+
+	go env -w GOPROXY=https://goproxy.cn,direct
+
+
